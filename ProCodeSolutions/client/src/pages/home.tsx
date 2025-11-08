@@ -31,7 +31,9 @@ export default function Home() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       company: "",
+      budget: "",
       message: "",
     },
   });
@@ -458,73 +460,112 @@ export default function Home() {
             {/* Contact Form */}
             <div>
               <Form {...form}>
-                <form onSubmit={form.handleSubmit((data) => contactMutation.mutate(data))} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Your Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="John Smith" {...field} data-testid="input-name" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+  <form onSubmit={form.handleSubmit((data) => contactMutation.mutate(data))} className="space-y-6">
+    <FormField
+      control={form.control}
+      name="name"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>Your Name</FormLabel>
+          <FormControl>
+            <Input placeholder="John Smith" {...field} data-testid="input-name" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
 
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Your Email</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="john@example.com" {...field} data-testid="input-email" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+    <FormField
+      control={form.control}
+      name="email"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>Your Email</FormLabel>
+          <FormControl>
+            <Input type="email" placeholder="john@example.com" {...field} data-testid="input-email" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
 
-                  <FormField
-                    control={form.control}
-                    name="company"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Business Name (Optional)</FormLabel>
-                        <FormControl>
-                          <Input placeholder="ABC Company" {...field} value={field.value ?? ""} data-testid="input-company" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+    <FormField
+      control={form.control}
+      name="phone"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>Phone Number (Optional)</FormLabel>
+          <FormControl>
+            <Input type="tel" placeholder="(270) 555-1234" {...field} value={field.value ?? ""} data-testid="input-phone" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
 
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Tell Me About Your Project</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="I need a website for my restaurant with a menu and contact info..."
-                            className="min-h-32"
-                            {...field}
-                            data-testid="input-message"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+    <FormField
+      control={form.control}
+      name="company"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>Business Name (Optional)</FormLabel>
+          <FormControl>
+            <Input placeholder="ABC Company" {...field} value={field.value ?? ""} data-testid="input-company" />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
 
-                  <Button type="submit" className="w-full" disabled={contactMutation.isPending} data-testid="button-submit-contact">
-                    {contactMutation.isPending ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </Form>
+    <FormField
+      control={form.control}
+      name="budget"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>Budget</FormLabel>
+          <FormControl>
+            <select 
+              {...field} 
+              value={field.value ?? ""} 
+              className="w-full p-3 border border-border rounded-lg bg-background text-foreground"
+              data-testid="select-budget"
+            >
+              <option value="">Select your budget...</option>
+              <option value="$200 - Starter">$200 - Starter Package</option>
+              <option value="$500 - Professional">$500 - Professional Package</option>
+              <option value="$800 - Enterprise">$800 - Enterprise Package</option>
+              <option value="Custom">Custom / Not Sure</option>
+            </select>
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+
+    <FormField
+      control={form.control}
+      name="message"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>Tell Me About Your Project</FormLabel>
+          <FormControl>
+            <Textarea
+              placeholder="I need a website for my restaurant with a menu and contact info..."
+              className="min-h-32"
+              {...field}
+              data-testid="input-message"
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+
+    <Button type="submit" className="w-full" disabled={contactMutation.isPending} data-testid="button-submit-contact">
+      {contactMutation.isPending ? "Sending..." : "Send Message"}
+    </Button>
+  </form>
+</Form>
             </div>
 
             {/* Contact Information */}
