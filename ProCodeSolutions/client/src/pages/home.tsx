@@ -205,15 +205,12 @@ export default function Home() {
               >
                 Contact
               </button>
-            </div>
-
-            <button
-              onClick={() => window.location.href = '/portfolio'}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Portfolio
-            </button>
-
+              <button
+                onClick={() => window.location.href = '/portfolio'}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Portfolio
+              </button>
             <div className="hidden md:block">
               <Button onClick={() => scrollToSection("contact")} data-testid="button-get-started">
                 Get Started
