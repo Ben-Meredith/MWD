@@ -42,15 +42,15 @@ export default function Home() {
     },
     onSuccess: () => {
       toast({
-        title: "Message sent successfully!",
+        title: "Message sent!",
         description: "I'll get back to you within 24 hours.",
       });
       form.reset();
     },
     onError: () => {
       toast({
-        title: "Failed to send message",
-        description: "Please try again or contact me directly.",
+        title: "Something went wrong",
+        description: "Please email me directly at ben.meredith1@icloud.com",
         variant: "destructive",
       });
     },
@@ -65,43 +65,43 @@ export default function Home() {
   };
 
   const technologies = [
-    { icon: Code2, name: "HTML5", description: "Modern semantic markup for accessible, SEO-friendly websites" },
-    { icon: Palette, name: "CSS3", description: "Advanced styling with animations, grids, and responsive design" },
-    { icon: Zap, name: "JavaScript", description: "Dynamic interactions and powerful client-side functionality" },
-    { icon: Globe, name: "React", description: "Component-based UI library for fast, scalable applications" },
-    { icon: Shield, name: "Node.js", description: "Server-side JavaScript for robust backend solutions" },
-    { icon: Smartphone, name: "Responsive", description: "Mobile-first design that works on all devices" },
+    { icon: Code2, name: "HTML5", description: "The foundation of every website - clean and organized" },
+    { icon: Palette, name: "CSS3", description: "Beautiful designs that make your site stand out" },
+    { icon: Zap, name: "JavaScript", description: "Interactive features that engage your visitors" },
+    { icon: Globe, name: "React", description: "Fast, modern websites that feel like apps" },
+    { icon: Shield, name: "Node.js", description: "Powerful backend that handles everything smoothly" },
+    { icon: Smartphone, name: "Mobile Ready", description: "Looks perfect on phones, tablets, and computers" },
   ];
 
   const services = [
     {
-      title: "Custom Web Development",
-      description: "Tailored solutions built from the ground up to meet your unique business requirements. I create scalable, maintainable websites using the latest web technologies.",
+      title: "Custom Websites",
+      description: "I build websites specifically for your business - no cookie-cutter templates. Your site will be unique and exactly what you need to attract customers.",
       features: [
-        "Custom website design",
-        "Responsive across all devices",
-        "Modern tech stack",
-        "Performance optimization",
+        "Designed just for your business",
+        "Works on all devices",
+        "Easy for customers to use",
+        "Fast loading speeds",
       ],
     },
     {
-      title: "Web Application Development",
-      description: "Complex, feature-rich web applications that deliver exceptional user experiences. From concept to deployment, I handle the entire development process.",
+      title: "Online Stores",
+      description: "Want to sell online? I'll build you a complete online store where customers can browse products, add to cart, and check out securely.",
       features: [
-        "Single Page Applications (SPA)",
-        "Progressive Web Apps (PWA)",
-        "Real-time functionality",
-        "API integration",
+        "Shopping cart that works",
+        "Accept credit cards safely",
+        "Manage your products easily",
+        "See how many sales you're making",
       ],
     },
     {
-      title: "E-Commerce Solutions",
-      description: "Powerful online stores that drive conversions and grow your business. Secure payment processing, inventory management, and seamless checkout experiences.",
+      title: "Business Websites",
+      description: "Professional websites that help you get more customers. Perfect for restaurants, shops, services, or any local business that wants to grow.",
       features: [
-        "Shopping cart systems",
-        "Payment gateway integration",
-        "Product management",
-        "Analytics & reporting",
+        "Contact forms that work",
+        "Show off your services or menu",
+        "Customer reviews section",
+        "Google Maps location",
       ],
     },
   ];
@@ -109,44 +109,48 @@ export default function Home() {
   const pricingTiers = [
     {
       name: "Starter",
-      price: "$800",
-      description: "Perfect for small businesses and startups",
+      price: "$200",
+      description: "Great for small businesses just getting started",
       features: [
-        "5-page responsive website",
-        "Mobile-optimized design",
-        "Contact form integration",
-        "Basic SEO optimization",
-        "2 weeks delivery",
-        "1 month support",
+        "5-page website",
+        "Works on phones & computers",
+        "Contact form",
+        "Your business info & hours",
+        "Photo gallery",
+        "Google Maps location",
+        "Basic setup for Google searches",
       ],
     },
     {
       name: "Professional",
-      price: "$1,500",
-      description: "Ideal for growing businesses",
+      price: "$500",
+      description: "Perfect for businesses that want more features",
       features: [
-        "Custom web application",
+        "Everything in Starter, plus:",
         "Up to 10 pages",
-        "Advanced functionality",
-        "Database integration",
-        "CMS integration",
-        "3 months support",
-        "Performance optimization",
+        "Online appointment booking",
+        "Customer review section",
+        "Email signup for customers",
+        "Social media links",
+        "Better Google search ranking",
+        "Free updates for 3 months",
       ],
       highlighted: true,
     },
     {
       name: "Enterprise",
-      price: "Custom",
-      description: "For large-scale projects",
+      price: "$800",
+      description: "For businesses that need a complete solution",
       features: [
-        "Complex web applications",
+        "Everything in Professional, plus:",
         "Unlimited pages",
-        "Scalable architecture",
-        "Advanced integrations",
-        "Priority support",
-        "Ongoing maintenance",
-        "Custom solutions",
+        "Online store (sell products)",
+        "Customer accounts & login",
+        "Blog for posting updates",
+        "Advanced contact forms",
+        "Analytics to track visitors",
+        "Free updates for 6 months",
+        "Priority phone support",
       ],
     },
   ];
@@ -176,7 +180,7 @@ export default function Home() {
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 data-testid="link-technologies"
               >
-                Technologies
+                What I Use
               </button>
               <button
                 onClick={() => scrollToSection("services")}
@@ -228,7 +232,7 @@ export default function Home() {
                   className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
                   data-testid="link-mobile-technologies"
                 >
-                  Technologies
+                  What I Use
                 </button>
                 <button
                   onClick={() => scrollToSection("services")}
@@ -275,11 +279,10 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6" data-testid="text-hero-title">
-            Build Your Digital Future
+            Get a Professional Website for Your Business
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto" data-testid="text-hero-subtitle">
-            Expert web development services using HTML5, CSS3, JavaScript, and modern frameworks. 
-            I create stunning, high-performance websites and applications that drive results for businesses in Lexington and beyond.
+            I build custom websites for businesses in Lexington. No complicated tech talk - just a great website that helps you get more customers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -288,16 +291,16 @@ export default function Home() {
               className="text-base backdrop-blur-lg"
               data-testid="button-hero-primary"
             >
-              Start Your Project
+              Get Your Free Quote
             </Button>
             <Button
               size="lg"
               variant="outline"
-              onClick={() => scrollToSection("services")}
+              onClick={() => scrollToSection("pricing")}
               className="text-base backdrop-blur-lg bg-background/10"
               data-testid="button-hero-secondary"
             >
-              View Services
+              See Pricing
             </Button>
           </div>
         </div>
@@ -308,10 +311,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4" data-testid="text-technologies-title">
-              Technology Stack
+              What I Use to Build Your Site
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-technologies-description">
-              I leverage cutting-edge technologies to build fast, secure, and scalable web solutions
+              I use proven tools and technology to create fast, reliable websites
             </p>
           </div>
 
@@ -339,10 +342,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4" data-testid="text-services-title">
-              Services
+              What I Can Build For You
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-services-description">
-              Comprehensive web development solutions tailored to your business needs
+              Whether you need a simple website or a full online store, I've got you covered
             </p>
           </div>
 
@@ -389,10 +392,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4" data-testid="text-pricing-title">
-              Transparent Pricing
+              Simple, Honest Pricing
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-pricing-description">
-              Choose the plan that fits your needs. All plans include expert development and quality assurance.
+              Pick the package that fits your needs. No hidden fees, no surprises.
             </p>
           </div>
 
@@ -411,9 +414,7 @@ export default function Home() {
                   <h3 className="text-2xl md:text-3xl font-semibold mb-2" data-testid={`text-pricing-name-${index}`}>{tier.name}</h3>
                   <p className="text-sm md:text-base text-muted-foreground mb-4" data-testid={`text-pricing-description-${index}`}>{tier.description}</p>
                   <div className="text-4xl md:text-5xl font-bold tracking-tight" data-testid={`text-pricing-price-${index}`}>{tier.price}</div>
-                  {tier.price !== "Custom" && (
-                    <p className="text-sm text-muted-foreground mt-2" data-testid={`text-pricing-note-${index}`}>starting price</p>
-                  )}
+                  <p className="text-sm text-muted-foreground mt-2" data-testid={`text-pricing-note-${index}`}>one-time payment</p>
                 </div>
 
                 <ul className="space-y-4 mb-8">
@@ -446,10 +447,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4" data-testid="text-contact-title">
-              Get In Touch
+              Let's Talk About Your Website
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-contact-description">
-              Ready to start your project? Contact me today for a free consultation.
+              Fill out the form below and I'll get back to you within 24 hours with a free quote.
             </p>
           </div>
 
@@ -463,9 +464,9 @@ export default function Home() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Name</FormLabel>
+                        <FormLabel>Your Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your name" {...field} data-testid="input-name" />
+                          <Input placeholder="John Smith" {...field} data-testid="input-name" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -477,9 +478,9 @@ export default function Home() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>Your Email</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="your.email@example.com" {...field} data-testid="input-email" />
+                          <Input type="email" placeholder="john@example.com" {...field} data-testid="input-email" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -491,9 +492,9 @@ export default function Home() {
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Company (Optional)</FormLabel>
+                        <FormLabel>Business Name (Optional)</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your company name" {...field} value={field.value ?? ""} data-testid="input-company" />
+                          <Input placeholder="ABC Company" {...field} value={field.value ?? ""} data-testid="input-company" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -505,10 +506,10 @@ export default function Home() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>Tell Me About Your Project</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Tell me about your project..."
+                            placeholder="I need a website for my restaurant with a menu and contact info..."
                             className="min-h-32"
                             {...field}
                             data-testid="input-message"
@@ -534,7 +535,7 @@ export default function Home() {
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1" data-testid="text-contact-email-label">Email</h3>
+                    <h3 className="font-semibold mb-1" data-testid="text-contact-email-label">Email Me</h3>
                     <a href="mailto:ben.meredith1@icloud.com" className="text-muted-foreground hover:text-primary transition-colors" data-testid="text-contact-email-value">
                       ben.meredith1@icloud.com
                     </a>
@@ -548,7 +549,7 @@ export default function Home() {
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1" data-testid="text-contact-phone-label">Phone</h3>
+                    <h3 className="font-semibold mb-1" data-testid="text-contact-phone-label">Call or Text</h3>
                     <a href="tel:+12702878129" className="text-muted-foreground hover:text-primary transition-colors" data-testid="text-contact-phone-value">
                       (270) 287-8129
                     </a>
@@ -562,8 +563,9 @@ export default function Home() {
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1" data-testid="text-contact-location-label">Location</h3>
+                    <h3 className="font-semibold mb-1" data-testid="text-contact-location-label">Located In</h3>
                     <p className="text-muted-foreground" data-testid="text-contact-location-value">Lexington, KY</p>
+                    <p className="text-sm text-muted-foreground mt-1">Serving all local businesses</p>
                   </div>
                 </div>
               </Card>
@@ -574,8 +576,9 @@ export default function Home() {
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1" data-testid="text-contact-hours-label">Availability</h3>
-                    <p className="text-muted-foreground" data-testid="text-contact-hours-value">Monday - Saturday: 9AM - 8PM EST</p>
+                    <h3 className="font-semibold mb-1" data-testid="text-contact-hours-label">When I'm Available</h3>
+                    <p className="text-muted-foreground" data-testid="text-contact-hours-value">Monday - Saturday</p>
+                    <p className="text-sm text-muted-foreground">9:00 AM - 8:00 PM EST</p>
                   </div>
                 </div>
               </Card>
@@ -610,25 +613,25 @@ export default function Home() {
             </div>
 
             <div data-testid="footer-section-services">
-              <h3 className="font-semibold mb-4" data-testid="text-footer-services-title">Services</h3>
+              <h3 className="font-semibold mb-4" data-testid="text-footer-services-title">What I Build</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-service-web-dev">Web Development</li>
-                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-service-web-apps">Web Applications</li>
-                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-service-ecommerce">E-Commerce</li>
+                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-service-web-dev">Custom Websites</li>
+                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-service-web-apps">Business Sites</li>
+                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-service-ecommerce">Online Stores</li>
               </ul>
             </div>
 
             <div data-testid="footer-section-technologies">
-              <h3 className="font-semibold mb-4" data-testid="text-footer-technologies-title">Technologies</h3>
+              <h3 className="font-semibold mb-4" data-testid="text-footer-technologies-title">Why Choose Me</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-tech-html-css">HTML5 & CSS3</li>
-                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-tech-javascript">JavaScript</li>
-                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-tech-react-node">React & Node.js</li>
+                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-tech-html-css">No Templates</li>
+                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-tech-javascript">Fast Websites</li>
+                <li className="hover:text-foreground transition-colors cursor-pointer" data-testid="text-footer-tech-react-node">Local Support</li>
               </ul>
             </div>
 
             <div data-testid="footer-section-contact">
-              <h3 className="font-semibold mb-4" data-testid="text-footer-contact-title">Contact</h3>
+              <h3 className="font-semibold mb-4" data-testid="text-footer-contact-title">Get In Touch</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li data-testid="text-footer-location">Lexington, KY</li>
                 <li>
@@ -645,14 +648,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between gap-4 items-center">
+          <div className="pt-8 border-t border-border text-center">
             <p className="text-sm text-muted-foreground" data-testid="text-footer-copyright">
               © 2025 Meredith Web Development. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              <button className="hover:text-foreground transition-colors" data-testid="link-footer-privacy">Privacy Policy</button>
-              <button className="hover:text-foreground transition-colors" data-testid="link-footer-terms">Terms of Service</button>
-            </div>
           </div>
         </div>
       </footer>
