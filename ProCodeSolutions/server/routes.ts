@@ -23,41 +23,45 @@ export async function registerRoutes(app: Express): Promise<Server> {
           to: "ben.meredith1@icloud.com",
           subject: `New Website Inquiry from ${validatedData.name}`,
           html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #333;">New Contact Form Submission</h2>
-              
-              <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <p style="margin: 10px 0;"><strong>Name:</strong> ${validatedData.name}</p>
-                <p style="margin: 10px 0;"><strong>Email:</strong> ${validatedData.email}</p>
-                ${validatedData.company ? `<p style="margin: 10px 0;"><strong>Company:</strong> ${validatedData.company}</p>` : ''}
-              </div>
-              
-              <div style="margin: 20px 0;">
-                <h3 style="color: #333;">Message:</h3>
-                <p style="background: #fff; padding: 15px; border-left: 4px solid #0071e3;">
-                  ${validatedData.message}
-                </p>
-              </div>
-              
-              <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;" />
-              
-              <p style="color: #666; font-size: 12px;">
-                Reply directly to ${validatedData.email}
-              </p>
-            </div>
-          `,
-          text: `
+  <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+    <h2 style="color: #333;">New Contact Form Submission</h2>
+    
+    <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <p style="margin: 10px 0;"><strong>Name:</strong> ${validatedData.name}</p>
+      <p style="margin: 10px 0;"><strong>Email:</strong> ${validatedData.email}</p>
+      ${validatedData.phone ? `<p style="margin: 10px 0;"><strong>Phone:</strong> ${validatedData.phone}</p>` : ''}
+      ${validatedData.company ? `<p style="margin: 10px 0;"><strong>Company:</strong> ${validatedData.company}</p>` : ''}
+      ${validatedData.budget ? `<p style="margin: 10px 0; color: #0071e3;"><strong>Budget:</strong> ${validatedData.budget}</p>` : ''}
+    </div>
+    
+    <div style="margin: 20px 0;">
+      <h3 style="color: #333;">Message:</h3>
+      <p style="background: #fff; padding: 15px; border-left: 4px solid #0071e3;">
+        ${validatedData.message}
+      </p>
+    </div>
+    
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;" />
+    
+    <p style="color: #666; font-size: 12px;">
+      Reply directly to ${validatedData.email}
+    </p>
+  </div>
+`,
+text: `
 New Website Inquiry
 
 Name: ${validatedData.name}
 Email: ${validatedData.email}
+${validatedData.phone ? `Phone: ${validatedData.phone}` : ''}
 ${validatedData.company ? `Company: ${validatedData.company}` : ''}
+${validatedData.budget ? `Budget: ${validatedData.budget}` : ''}
 
 Message:
 ${validatedData.message}
 
 Reply to: ${validatedData.email}
-          `,
+`,
         });
         
         console.log("✅ Email sent to ben.meredith1@icloud.com");
