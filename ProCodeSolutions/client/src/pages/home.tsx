@@ -43,14 +43,14 @@ export default function Home() {
     onSuccess: () => {
       toast({
         title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours.",
+        description: "I'll get back to you within 24 hours.",
       });
       form.reset();
     },
     onError: () => {
       toast({
         title: "Failed to send message",
-        description: "Please try again or contact us directly.",
+        description: "Please try again or contact me directly.",
         variant: "destructive",
       });
     },
@@ -76,17 +76,17 @@ export default function Home() {
   const services = [
     {
       title: "Custom Web Development",
-      description: "Tailored solutions built from the ground up to meet your unique business requirements. We create scalable, maintainable applications using the latest web technologies.",
+      description: "Tailored solutions built from the ground up to meet your unique business requirements. I create scalable, maintainable websites using the latest web technologies.",
       features: [
-        "Custom architecture design",
-        "Scalable infrastructure",
+        "Custom website design",
+        "Responsive across all devices",
         "Modern tech stack",
         "Performance optimization",
       ],
     },
     {
       title: "Web Application Development",
-      description: "Complex, feature-rich web applications that deliver exceptional user experiences. From concept to deployment, we handle the entire development lifecycle.",
+      description: "Complex, feature-rich web applications that deliver exceptional user experiences. From concept to deployment, I handle the entire development process.",
       features: [
         "Single Page Applications (SPA)",
         "Progressive Web Apps (PWA)",
@@ -109,25 +109,26 @@ export default function Home() {
   const pricingTiers = [
     {
       name: "Starter",
-      price: "$2,999",
+      price: "$800",
       description: "Perfect for small businesses and startups",
       features: [
         "5-page responsive website",
         "Mobile-optimized design",
         "Contact form integration",
         "Basic SEO optimization",
+        "2 weeks delivery",
         "1 month support",
       ],
     },
     {
       name: "Professional",
-      price: "$7,999",
+      price: "$1,500",
       description: "Ideal for growing businesses",
       features: [
         "Custom web application",
+        "Up to 10 pages",
         "Advanced functionality",
         "Database integration",
-        "API development",
         "CMS integration",
         "3 months support",
         "Performance optimization",
@@ -140,9 +141,9 @@ export default function Home() {
       description: "For large-scale projects",
       features: [
         "Complex web applications",
+        "Unlimited pages",
         "Scalable architecture",
         "Advanced integrations",
-        "Dedicated team",
         "Priority support",
         "Ongoing maintenance",
         "Custom solutions",
@@ -165,7 +166,7 @@ export default function Home() {
               className="text-xl font-bold tracking-tight hover-elevate active-elevate-2 rounded-md px-2 -ml-2"
               data-testid="link-logo"
             >
-              Elite Web Solutions
+              Meredith Web Development
             </button>
 
             {/* Desktop Navigation */}
@@ -278,7 +279,7 @@ export default function Home() {
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto" data-testid="text-hero-subtitle">
             Expert web development services using HTML5, CSS3, JavaScript, and modern frameworks. 
-            We create stunning, high-performance websites and applications that drive results.
+            I create stunning, high-performance websites and applications that drive results for businesses in Lexington and beyond.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -296,7 +297,7 @@ export default function Home() {
               className="text-base backdrop-blur-lg bg-background/10"
               data-testid="button-hero-secondary"
             >
-              View Our Services
+              View Services
             </Button>
           </div>
         </div>
@@ -307,10 +308,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4" data-testid="text-technologies-title">
-              Our Technology Stack
+              Technology Stack
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-technologies-description">
-              We leverage cutting-edge technologies to build fast, secure, and scalable web solutions
+              I leverage cutting-edge technologies to build fast, secure, and scalable web solutions
             </p>
           </div>
 
@@ -338,7 +339,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4" data-testid="text-services-title">
-              Our Services
+              Services
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-services-description">
               Comprehensive web development solutions tailored to your business needs
@@ -448,7 +449,7 @@ export default function Home() {
               Get In Touch
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-contact-description">
-              Ready to start your project? Contact us today for a free consultation.
+              Ready to start your project? Contact me today for a free consultation.
             </p>
           </div>
 
@@ -507,7 +508,7 @@ export default function Home() {
                         <FormLabel>Message</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Tell us about your project..."
+                            placeholder="Tell me about your project..."
                             className="min-h-32"
                             {...field}
                             data-testid="input-message"
@@ -534,7 +535,9 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1" data-testid="text-contact-email-label">Email</h3>
-                    <p className="text-muted-foreground" data-testid="text-contact-email-value">contact@elitewebsolutions.com</p>
+                    <a href="mailto:ben.meredith1@icloud.com" className="text-muted-foreground hover:text-primary transition-colors" data-testid="text-contact-email-value">
+                      ben.meredith1@icloud.com
+                    </a>
                   </div>
                 </div>
               </Card>
@@ -546,7 +549,9 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1" data-testid="text-contact-phone-label">Phone</h3>
-                    <p className="text-muted-foreground" data-testid="text-contact-phone-value">+1 (555) 123-4567</p>
+                    <a href="tel:+12702878129" className="text-muted-foreground hover:text-primary transition-colors" data-testid="text-contact-phone-value">
+                      (270) 287-8129
+                    </a>
                   </div>
                 </div>
               </Card>
@@ -558,7 +563,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1" data-testid="text-contact-location-label">Location</h3>
-                    <p className="text-muted-foreground" data-testid="text-contact-location-value">San Francisco, CA</p>
+                    <p className="text-muted-foreground" data-testid="text-contact-location-value">Lexington, KY</p>
                   </div>
                 </div>
               </Card>
@@ -569,8 +574,8 @@ export default function Home() {
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1" data-testid="text-contact-hours-label">Business Hours</h3>
-                    <p className="text-muted-foreground" data-testid="text-contact-hours-value">Monday - Friday: 9AM - 6PM PST</p>
+                    <h3 className="font-semibold mb-1" data-testid="text-contact-hours-label">Availability</h3>
+                    <p className="text-muted-foreground" data-testid="text-contact-hours-value">Monday - Saturday: 9AM - 8PM EST</p>
                   </div>
                 </div>
               </Card>
@@ -625,16 +630,24 @@ export default function Home() {
             <div data-testid="footer-section-contact">
               <h3 className="font-semibold mb-4" data-testid="text-footer-contact-title">Contact</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li data-testid="text-footer-location">San Francisco, CA</li>
-                <li data-testid="text-footer-email">contact@elitewebsolutions.com</li>
-                <li data-testid="text-footer-phone">+1 (555) 123-4567</li>
+                <li data-testid="text-footer-location">Lexington, KY</li>
+                <li>
+                  <a href="mailto:ben.meredith1@icloud.com" className="hover:text-foreground transition-colors" data-testid="text-footer-email">
+                    ben.meredith1@icloud.com
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+12702878129" className="hover:text-foreground transition-colors" data-testid="text-footer-phone">
+                    (270) 287-8129
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
 
           <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between gap-4 items-center">
             <p className="text-sm text-muted-foreground" data-testid="text-footer-copyright">
-              © 2025 Elite Web Solutions. All rights reserved.
+              © 2025 Meredith Web Development. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
               <button className="hover:text-foreground transition-colors" data-testid="link-footer-privacy">Privacy Policy</button>
