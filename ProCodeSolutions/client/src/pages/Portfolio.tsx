@@ -13,7 +13,7 @@ export default function Portfolio() {
       title: "Yellow Jacket Lawn Care",
       description: "Professional lawn care service website with contact form and service listings.",
       image: "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&h=500&fit=crop",
-      url: "https://yellowjacketlawn.com", // Replace with real URL
+      url: "https://yellowjacketlawn.com",
       package: "starter",
       packageName: "Starter - $200",
       features: ["5 Pages", "Contact Form", "Mobile Responsive", "Google Maps"],
@@ -24,7 +24,7 @@ export default function Portfolio() {
       title: "Local Coffee Shop",
       description: "Cozy coffee shop website with menu, hours, and location information.",
       image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=500&fit=crop",
-      url: "#", // Replace with real URL
+      url: "#",
       package: "starter",
       packageName: "Starter - $200",
       features: ["Menu Display", "Business Hours", "Photo Gallery", "Contact Info"],
@@ -37,7 +37,7 @@ export default function Portfolio() {
       title: "Budget Dumpsters",
       description: "Dumpster rental service with online booking and customer review system.",
       image: "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&h=500&fit=crop",
-      url: "https://budgetdumpsters.com", // Replace with real URL
+      url: "https://budgetdumpsters.com",
       package: "professional",
       packageName: "Professional - $500",
       features: ["Online Booking", "Customer Reviews", "10 Pages", "Email Integration"],
@@ -48,7 +48,7 @@ export default function Portfolio() {
       title: "Family Dental Practice",
       description: "Modern dental practice website with appointment scheduling and patient portal.",
       image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=500&fit=crop",
-      url: "#", // Replace with real URL
+      url: "#",
       package: "professional",
       packageName: "Professional - $500",
       features: ["Appointment Booking", "Service Pages", "Insurance Info", "Patient Forms"],
@@ -61,7 +61,7 @@ export default function Portfolio() {
       title: "Boutique Clothing Store",
       description: "Full e-commerce store with product catalog, shopping cart, and secure checkout.",
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop",
-      url: "#", // Replace with real URL
+      url: "#",
       package: "enterprise",
       packageName: "Enterprise - $800",
       features: ["Online Store", "Shopping Cart", "Payment Processing", "Customer Accounts"],
@@ -80,8 +80,8 @@ export default function Portfolio() {
     { id: "enterprise", name: "Enterprise ($800)", count: projects.filter(p => p.package === "enterprise").length },
   ];
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToContact = () => {
+    window.location.href = "/#contact";
   };
 
   return (
@@ -129,7 +129,6 @@ export default function Portfolio() {
               <Card
                 key={project.id}
                 className="overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group"
-                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Project Preview Image */}
                 <div className="relative h-64 md:h-80 overflow-hidden bg-muted">
@@ -138,7 +137,7 @@ export default function Portfolio() {
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
                   {/* Package Badge */}
                   <div className="absolute top-4 right-4">
@@ -235,11 +234,11 @@ export default function Portfolio() {
             Let's build something amazing together. Get a free quote today!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={scrollToTop}>
-              View Pricing
+            <Button size="lg" onClick={scrollToContact}>
+              Get Started
             </Button>
-            <Button size="lg" variant="outline" onClick={scrollToTop}>
-              Contact Me
+            <Button size="lg" variant="outline" asChild>
+              <a href="/">Back to Home</a>
             </Button>
           </div>
         </div>
