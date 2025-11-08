@@ -207,6 +207,13 @@ export default function Home() {
               </button>
             </div>
 
+            <button
+              onClick={() => window.location.href = '/portfolio'}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Portfolio
+            </button>
+
             <div className="hidden md:block">
               <Button onClick={() => scrollToSection("contact")} data-testid="button-get-started">
                 Get Started
@@ -260,6 +267,9 @@ export default function Home() {
                 <Button onClick={() => scrollToSection("contact")} className="w-full" data-testid="button-mobile-get-started">
                   Get Started
                 </Button>
+                <button onClick={() => window.location.href = '/portfolio'} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left">
+                  Portfolio
+                </button>
               </div>
             </div>
           )}
