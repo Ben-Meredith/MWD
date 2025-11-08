@@ -5,7 +5,6 @@ import { insertContactInquirySchema } from "@shared/schema";
 import { Resend } from "resend";
 
 // Initialize Resend with your API key
-// Get your API key from: https://resend.com/api-keys
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -17,10 +16,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Save to storage
       const inquiry = await storage.createContactInquiry(validatedData);
       
-      // Send email notification to you
+      // Send email notification
       try {
         await resend.emails.send({
-          from: "Contact Form <onboarding@resend.dev>", // This is Resend's test email (change after verifying domain)
+          from: "Contact Form <onboarding@resend.dev>",
           to: "ben.meredith1@icloud.com",
           subject: `New Website Inquiry from ${validatedData.name}`,
           html: `
@@ -35,7 +34,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
               
               <div style="margin: 20px 0;">
                 <h3 style="color: #333;">Message:</h3>
-                <p style="background: #fff; padding: 15px; border-left: 4px solid #0071e3; margin: 10px 0;">
+                <p style="background: #fff; padding: 15px; border-left: 4px solid #0071e3;">
                   ${validatedData.message}
                 </p>
               </div>
@@ -43,7 +42,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
               <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;" />
               
               <p style="color: #666; font-size: 12px;">
-                This email was sent from your website contact form at mwd-ryxx.onrender.com
+                Reply directly to ${validatedData.email}
               </p>
             </div>
           `,
@@ -57,16 +56,13 @@ ${validatedData.company ? `Company: ${validatedData.company}` : ''}
 Message:
 ${validatedData.message}
 
----
-Reply directly to ${validatedData.email} to respond.
+Reply to: ${validatedData.email}
           `,
         });
         
-        console.log("✅ Email sent successfully to ben.meredith1@icloud.com");
+        console.log("✅ Email sent to ben.meredith1@icloud.com");
       } catch (emailError) {
-        console.error("❌ Failed to send email:", emailError);
-        // Still return success to user even if email fails
-        // The inquiry is saved to storage
+        console.error("❌ Email failed:", emailError);
       }
       
       res.json(inquiry);
