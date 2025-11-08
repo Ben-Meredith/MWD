@@ -21,7 +21,9 @@ export const contactInquiries = pgTable("contact_inquiries", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   name: text("name").notNull(),
   email: text("email").notNull(),
+  phone: text("phone"),
   company: text("company"),
+  budget: text("budget"),
   message: text("message").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
@@ -33,6 +35,8 @@ export const insertContactInquirySchema = createInsertSchema(contactInquiries).o
   email: z.string().email("Please enter a valid email address"),
   name: z.string().min(2, "Name must be at least 2 characters"),
   message: z.string().min(10, "Message must be at least 10 characters"),
+  phone: z.string().optional(),
+  budget: z.string().optional(),
 });
 
 export type InsertContactInquiry = z.infer<typeof insertContactInquirySchema>;
