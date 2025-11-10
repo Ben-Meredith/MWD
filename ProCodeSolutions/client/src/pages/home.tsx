@@ -192,12 +192,13 @@ export default function Home() {
     Services
   </button>
   
-    href="/portfolio"
-    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-    data-testid="link-portfolio"
-  >
-    Portfolio
-  </a>
+    <button
+  onClick={() => window.location.href = '/portfolio'}
+  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+  data-testid="link-portfolio"
+>
+  Portfolio
+</button>
   <button
     onClick={() => scrollToSection("pricing")}
     className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -261,12 +262,13 @@ export default function Home() {
         Services
       </button>
       
-        href="/portfolio"
-        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
-        data-testid="link-mobile-portfolio"
-      >
-        Portfolio
-      </a>
+        <button
+  onClick={() => window.location.href = '/portfolio'}
+  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
+  data-testid="link-mobile-portfolio"
+>
+  Portfolio
+</button>
       <button
         onClick={() => scrollToSection("pricing")}
         className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
