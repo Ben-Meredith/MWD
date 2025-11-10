@@ -12,9 +12,9 @@ import { useToast } from "@/hooks/use-toast";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import heroImage from "@assets/generated_images/Modern_workspace_hero_background_6868e6c3.png";
-import img1 from "/budgetd.img"
-import img2 from "/budgetd2.img"
-import img3 from "/yellowjacket.img"
+import img1 from "/budgetd.png"
+import img2 from "/budgetd2.png"
+import img3 from "/yellowjacket.png"
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
