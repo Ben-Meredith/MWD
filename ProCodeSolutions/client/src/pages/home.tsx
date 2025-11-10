@@ -176,47 +176,60 @@ export default function Home() {
             </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              <button
-                onClick={() => scrollToSection("technologies")}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                data-testid="link-technologies"
-              >
-                What I Use
-              </button>
-              <button
-                onClick={() => scrollToSection("services")}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                data-testid="link-services"
-              >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection("pricing")}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                data-testid="link-pricing"
-              >
-                Pricing
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                data-testid="link-contact"
-              >
-                Contact
-              </button>
-              <button
-                onClick={() => window.location.href = '/portfolio'}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Portfolio
-              </button>
-            <div className="hidden md:block">
-              <Button onClick={() => scrollToSection("contact")} data-testid="button-get-started">
-                Get Started
-              </Button>
-            </div>
+<div className="hidden md:flex items-center gap-8">
+  <button
+    onClick={() => scrollToSection("technologies")}
+    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+    data-testid="link-technologies"
+  >
+    What I Use
+  </button>
+  <button
+    onClick={() => scrollToSection("services")}
+    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+    data-testid="link-services"
+  >
+    Services
+  </button>
+  
+    href="/portfolio"
+    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+    data-testid="link-portfolio"
+  >
+    Portfolio
+  </a>
+  <button
+    onClick={() => scrollToSection("pricing")}
+    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+    data-testid="link-pricing"
+  >
+    Pricing
+  </button>
+  <button
+    onClick={() => scrollToSection("contact")}
+    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+    data-testid="link-contact"
+  >
+    Contact
+  </button>
+</div>
 
+<div className="hidden md:block">
+  <Button onClick={() => scrollToSection("contact")} data-testid="button-get-started">
+    Get Started
+  </Button>
+</div>
+
+{/* Mobile Menu Button */}
+<Button
+  variant="ghost"
+  size="icon"
+  className="md:hidden"
+  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+  data-testid="button-mobile-menu"
+>
+  {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+</Button>
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
@@ -230,46 +243,50 @@ export default function Home() {
           </div>
 
           {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-border">
-              <div className="flex flex-col gap-4">
-                <button
-                  onClick={() => scrollToSection("technologies")}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
-                  data-testid="link-mobile-technologies"
-                >
-                  What I Use
-                </button>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
-                  data-testid="link-mobile-services"
-                >
-                  Services
-                </button>
-                <button
-                  onClick={() => scrollToSection("pricing")}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
-                  data-testid="link-mobile-pricing"
-                >
-                  Pricing
-                </button>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
-                  data-testid="link-mobile-contact"
-                >
-                  Contact
-                </button>
-                <Button onClick={() => scrollToSection("contact")} className="w-full" data-testid="button-mobile-get-started">
-                  Get Started
-                </Button>
-                <button onClick={() => window.location.href = '/portfolio'} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left">
-                  Portfolio
-                </button>
-              </div>
-            </div>
-          )}
+{mobileMenuOpen && (
+  <div className="md:hidden py-4 border-t border-border">
+    <div className="flex flex-col gap-4">
+      <button
+        onClick={() => scrollToSection("technologies")}
+        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
+        data-testid="link-mobile-technologies"
+      >
+        What I Use
+      </button>
+      <button
+        onClick={() => scrollToSection("services")}
+        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
+        data-testid="link-mobile-services"
+      >
+        Services
+      </button>
+      
+        href="/portfolio"
+        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
+        data-testid="link-mobile-portfolio"
+      >
+        Portfolio
+      </a>
+      <button
+        onClick={() => scrollToSection("pricing")}
+        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
+        data-testid="link-mobile-pricing"
+      >
+        Pricing
+      </button>
+      <button
+        onClick={() => scrollToSection("contact")}
+        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
+        data-testid="link-mobile-contact"
+      >
+        Contact
+      </button>
+      <Button onClick={() => scrollToSection("contact")} className="w-full" data-testid="button-mobile-get-started">
+        Get Started
+      </Button>
+    </div>
+  </div>
+)}
         </div>
       </nav>
 
