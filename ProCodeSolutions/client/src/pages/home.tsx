@@ -12,6 +12,9 @@ import { useToast } from "@/hooks/use-toast";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import heroImage from "@assets/generated_images/Modern_workspace_hero_background_6868e6c3.png";
+import img1 from "/budgetd.img"
+import img2 from "/budgetd2.img"
+import img3 from "/yellowjacket.img"
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -79,6 +82,7 @@ export default function Home() {
     {
       title: "Custom Websites",
       description: "I build websites specifically for your business - no cookie-cutter templates. Your site will be unique and exactly what you need to attract customers.",
+      images: yellowjacketImage,
       features: [
         "Designed just for your business",
         "Works on all devices",
@@ -89,6 +93,7 @@ export default function Home() {
     {
       title: "Online Stores",
       description: "Want to sell online? I'll build you a complete online store where customers can browse products, add to cart, and check out securely.",
+      images: budgetdImage,
       features: [
         "Shopping cart that works",
         "Accept credit cards safely",
@@ -99,6 +104,7 @@ export default function Home() {
     {
       title: "Business Websites",
       description: "Professional websites that help you get more customers. Perfect for restaurants, shops, services, or any local business that wants to grow.",
+      images: budgetd2Image,
       features: [
         "Contact forms that work",
         "Show off your services or menu",
@@ -379,38 +385,42 @@ export default function Home() {
 
           <div className="space-y-24">
             {services.map((service, index) => (
-              <div
-                key={service.title}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                }`}
-                data-testid={`section-service-${index}`}
-              >
-                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <h3 className="text-2xl md:text-3xl font-semibold mb-4" data-testid={`text-service-title-${index}`}>{service.title}</h3>
-                  <p className="text-base md:text-lg text-muted-foreground mb-6 leading-relaxed" data-testid={`text-service-description-${index}`}>
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={feature} className="flex items-center gap-3" data-testid={`item-service-feature-${index}-${featureIndex}`}>
-                        <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <Check className="h-3 w-3 text-primary" />
-                        </div>
-                        <span className="text-sm md:text-base">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                  <Card className="p-12 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20" data-testid={`card-service-visual-${index}`}>
-                    <div className="aspect-video flex items-center justify-center">
-                      <Code2 className="h-24 w-24 text-primary opacity-20" />
-                    </div>
-                  </Card>
-                </div>
-              </div>
-            ))}
+  <div
+    key={service.title}
+    className={`grid lg:grid-cols-2 gap-12 items-center ${
+      index % 2 === 1 ? "lg:flex-row-reverse" : ""
+    }`}
+    data-testid={`section-service-${index}`}
+  >
+    <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+      <h3 className="text-2xl md:text-3xl font-semibold mb-4" data-testid={`text-service-title-${index}`}>{service.title}</h3>
+      <p className="text-base md:text-lg text-muted-foreground mb-6 leading-relaxed" data-testid={`text-service-description-${index}`}>
+        {service.description}
+      </p>
+      <ul className="space-y-3">
+        {service.features.map((feature, featureIndex) => (
+          <li key={feature} className="flex items-center gap-3" data-testid={`item-service-feature-${index}-${featureIndex}`}>
+            <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <Check className="h-3 w-3 text-primary" />
+            </div>
+            <span className="text-sm md:text-base">{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+      <Card className="p-0 overflow-hidden hover:shadow-xl transition-shadow" data-testid={`card-service-visual-${index}`}>
+        <div className="aspect-video">
+          <img 
+            src={service.image} 
+            alt={service.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Card>
+    </div>
+  </div>
+))}
           </div>
         </div>
       </section>
