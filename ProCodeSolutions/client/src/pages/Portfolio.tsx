@@ -7,7 +7,6 @@ export default function Portfolio() {
   const [activePackage, setActivePackage] = useState<string>("all");
 
   const projects = [
-    // STARTER PACKAGE PROJECTS ($200)
     {
       id: 1,
       title: "Yellow Jacket Lawn Care",
@@ -21,19 +20,6 @@ export default function Portfolio() {
     },
     {
       id: 2,
-      title: "Local Coffee Shop",
-      description: "Cozy coffee shop website with menu, hours, and location information.",
-      image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=500&fit=crop",
-      url: "#",
-      package: "starter",
-      packageName: "Starter - $200",
-      features: ["Menu Display", "Business Hours", "Photo Gallery", "Contact Info"],
-      tech: ["HTML5", "CSS3", "JavaScript"],
-    },
-    
-    // PROFESSIONAL PACKAGE PROJECTS ($500)
-    {
-      id: 3,
       title: "Budget Dumpsters",
       description: "Dumpster rental service with online booking and customer review system.",
       image: "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&h=500&fit=crop",
@@ -44,21 +30,8 @@ export default function Portfolio() {
       tech: ["HTML5", "CSS3", "JavaScript", "React"],
     },
     {
-      id: 4,
-      title: "Family Dental Practice",
-      description: "Modern dental practice website with appointment scheduling and patient portal.",
-      image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=500&fit=crop",
-      url: "#",
-      package: "professional",
-      packageName: "Professional - $500",
-      features: ["Appointment Booking", "Service Pages", "Insurance Info", "Patient Forms"],
-      tech: ["HTML5", "CSS3", "JavaScript", "React"],
-    },
-    
-    // ENTERPRISE PACKAGE PROJECTS ($800)
-    {
-      id: 5,
-      title: "Boutique Clothing Store",
+      id: 3,
+      title: "Local Restaurant",
       description: "Full e-commerce store with product catalog, shopping cart, and secure checkout.",
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop",
       url: "#",
@@ -80,13 +53,8 @@ export default function Portfolio() {
     { id: "enterprise", name: "Enterprise ($800)", count: projects.filter(p => p.package === "enterprise").length },
   ];
 
-  const scrollToContact = () => {
-    window.location.href = "/#contact";
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
       <section className="relative py-24 md:py-32 bg-gradient-to-br from-background via-muted/30 to-background">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -97,12 +65,11 @@ export default function Portfolio() {
             My Work
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Take a look at websites I've built for real businesses. Click any project to see it live!
+            Take a look at websites I have built for real businesses. Click any project to see it live!
           </p>
         </div>
       </section>
 
-      {/* Filter Buttons */}
       <section className="py-12 bg-muted/30 sticky top-0 z-40 backdrop-blur-lg border-b border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap gap-3 justify-center">
@@ -121,34 +88,27 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Portfolio Grid */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {filteredProjects.map((project, index) => (
-              <Card
-                key={project.id}
-                className="overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group"
-              >
-                {/* Project Preview Image */}
+            {filteredProjects.map((project) => (
+              <Card key={project.id} className="overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group">
                 <div className="relative h-64 md:h-80 overflow-hidden bg-muted">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  {/* Package Badge */}
                   <div className="absolute top-4 right-4">
                     <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
                       {project.packageName}
                     </span>
                   </div>
 
-                  {/* Hover Overlay with Live Link */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    
+                    <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -160,7 +120,6 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                {/* Project Details */}
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
                     {project.title}
@@ -169,7 +128,6 @@ export default function Portfolio() {
                     {project.description}
                   </p>
 
-                  {/* Features */}
                   <div className="mb-6">
                     <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
                       <Zap className="h-4 w-4 text-primary" />
@@ -177,17 +135,13 @@ export default function Portfolio() {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.features.map((feature, i) => (
-                        <span
-                          key={i}
-                          className="text-xs bg-muted px-3 py-1 rounded-full text-muted-foreground"
-                        >
+                        <span key={i} className="text-xs bg-muted px-3 py-1 rounded-full text-muted-foreground">
                           {feature}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  {/* Tech Stack */}
                   <div>
                     <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
                       <Code2 className="h-4 w-4 text-primary" />
@@ -195,19 +149,15 @@ export default function Portfolio() {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-medium"
-                        >
+                        <span key={i} className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
                           {tech}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  {/* Visit Button */}
                   <div className="mt-6 pt-6 border-t border-border">
-                    
+                    <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -224,7 +174,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-24 bg-muted/30">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -234,11 +183,11 @@ export default function Portfolio() {
             Let's build something amazing together. Get a free quote today!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={scrollToContact}>
+            <Button size="lg" onClick={() => window.location.href = "/#contact"}>
               Get Started
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="/">Back to Home</a>
+            <Button size="lg" variant="outline" onClick={() => window.location.href = "/"}>
+              Back to Home
             </Button>
           </div>
         </div>
